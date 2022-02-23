@@ -7,9 +7,8 @@
 
   outputs = { self, nixpkgs }:
     let
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-      };
+      # https://zimbatm.com/notes/1000-instances-of-nixpkgs
+      pkgs = nixpkgs.legacyPackages."x86_64-linux";
     in
     {
       devShells.x86_64-linux = import ./shells { inherit pkgs; };
