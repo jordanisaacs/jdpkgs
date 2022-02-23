@@ -1,4 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, isDark ? true, ... }:
+
 with pkgs;
 
 stdenv.mkDerivation rec {
@@ -29,11 +30,16 @@ stdenv.mkDerivation rec {
     substituteInPlace configure \
       --replace '@DISTRO@' 'nixos'
     substituteInPlace configure \
-      --replace '@GTKDM@' 'y'
-    substituteInPlace configure \
-      --replace '@PANELDM@' 'y'
-    substituteInPlace configure \
       --replace '@DISTLOGO@' 'n'
+
+    ${if isDark then ''
+      substituteInPlace configure \
+        --replace '@GTKDM@' 'y'
+      substituteInPlace configure \
+        --replace '@PANELDM@' 'y'
+      substituteInPlace index.theme \
+        --replace 'breeze' 'breeze-dark'
+    '' else ""}
   '';
 
   installPhase = ''
