@@ -12,6 +12,6 @@
     in
     {
       devShells.x86_64-linux = import ./shells { inherit pkgs; };
-      packages.x86_64-linux = import ./pkgs { inherit pkgs; };
+      packages.x86_64-linux = import ./pkgs rec { inherit pkgs; jdpkgs = self.packages.x86_64-linux; };
     };
 }
