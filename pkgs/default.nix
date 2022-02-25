@@ -7,10 +7,11 @@ with pkgs;
   volantes-cursors = callPackage ./volantes-cursors.nix { };
   la-capitaine-icon-theme = callPackage ./la-capitaine-icon-theme { };
 
-  qbe-hare = callPackage ./qbe-hare.nix { };
-  harec = callPackage ./harec.nix { inherit jdpkgs; };
-  hare = callPackage ./hare.nix { inherit jdpkgs; };
-  hareWrapper = callPackage ./hareWrapper.nix { inherit jdpkgs; };
+  qbe-hare = callPackage ./hare/qbe-hare.nix { };
+  harec = callPackage ./hare/harec.nix { inherit jdpkgs; };
+  hare = callPackage ./hare/hare.nix { inherit jdpkgs; };
+  hareWrapper = callPackage ./hare/hareWrapper.nix { inherit jdpkgs; };
+  tree-sitter-hare = callPackage ./hare/tree-sitter-hare.nix { inherit jdpkgs; };
 
   onedriverWrapper = callPackage ./onedriver.nix { };
   texstudioWrapper = callPackage ./texstudio.nix { };

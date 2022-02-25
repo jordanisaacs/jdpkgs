@@ -8,10 +8,16 @@
   outputs = { self, nixpkgs }:
     let
       # https://zimbatm.com/notes/1000-instances-of-nixpkgs
-      pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      system = "x86_64-linux";
+
+
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      devShells.x86_64-linux = import ./shells { inherit pkgs; };
-      packages.x86_64-linux = import ./pkgs rec { inherit pkgs; jdpkgs = self.packages.x86_64-linux; };
+      devShells.${system} = import ./shells {
+        inherit pkgs;
+      };
+
+      packages.${system} = import ./pkgs rec { inherit pkgs; jdpkgs = self.packages.${system}; };
     };
 }
