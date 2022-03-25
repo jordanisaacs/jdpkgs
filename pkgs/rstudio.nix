@@ -1,7 +1,7 @@
 { pkgs, ... }:
 with pkgs;
 
-{ packages ? with rPackages; [ markdown tidyverse ] }:
+{ packages ? with rPackages; [ markdown tidyverse lfe stargazer ] }:
 
 
 runCommand "rstudioWrapper"
