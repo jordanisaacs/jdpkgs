@@ -14,6 +14,8 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
+      utils = import ./utils { inherit pkgs; jdpkgs = self.packages.${system}; };
+
       devShells.${system} = import ./shells {
         inherit pkgs;
       };
