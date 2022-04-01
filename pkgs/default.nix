@@ -16,4 +16,6 @@ with pkgs;
   onedriverWrapper = callPackage ./onedriver.nix { };
   texstudioWrapper = callPackage ./texstudio.nix { };
   rstudioWrapper = callPackage ./rstudio.nix { } { };
+
+  undocker = callPackage ./undocker.nix { };
 }
