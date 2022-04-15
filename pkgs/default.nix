@@ -17,5 +17,9 @@ with pkgs;
   texstudioWrapper = callPackage ./texstudio.nix { };
   rstudioWrapper = callPackage ./rstudio.nix { } { };
 
+  microsoft-edge-stable = callPackage (import ./edge).stable { };
+  microsoft-edge-beta = callPackage (import ./edge).beta { };
+  microsoft-edge-dev = callPackage (import ./edge).dev { };
+
   undocker = callPackage ./undocker.nix { };
 }
