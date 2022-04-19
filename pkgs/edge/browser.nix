@@ -17,6 +17,7 @@ let
     if channel == "stable"
     then baseName
     else baseName + "-" + channel;
+  desktopName = "microsoft_edge_" + channel;
 
 in
 
@@ -157,6 +158,8 @@ stdenv.mkDerivation rec {
 
     substituteInPlace $out/share/applications/${longName}.desktop \
       --replace /usr/bin/${baseName}-${channel} $out/bin/${baseName}-${channel}
+
+    mv $out/share/applications/${longName}.desktop $out/share/applications/${desktopName}.desktop
 
     substituteInPlace $out/share/gnome-control-center/default-apps/${longName}.xml \
       --replace /opt/microsoft/${shortName} $out/opt/microsoft/${shortName}
