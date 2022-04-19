@@ -1,5 +1,14 @@
-{ pkgs, ... }:
-with pkgs;
+{ buildGoModule
+, runCommand
+, pkg-config
+, go
+, gcc
+, json-glib
+, webkitgtk
+, makeWrapper
+, glib-networking
+}:
+
 let
   program = buildGoModule
     rec {

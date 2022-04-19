@@ -1,6 +1,14 @@
-{ pkgs, isDark ? true, ... }:
+{ lib
+, stdenv
+, fetchFromGitHub
+, breeze-icons
+, pantheon
+, gnome-icon-theme
+, hicolor-icon-theme
+, isDark ? true
+, ...
+}:
 
-with pkgs;
 
 stdenv.mkDerivation rec {
   pname = "la-capitaine-icon-theme";
@@ -13,7 +21,7 @@ stdenv.mkDerivation rec {
     sha256 = "0id2dddx6rl71472l47vafx968wnklmq6b980br68w82kcvqczzs";
   };
 
-  propagatedBuildInputs = with pkgs; [
+  propagatedBuildInputs = [
     breeze-icons
     pantheon.elementary-icon-theme
     gnome-icon-theme

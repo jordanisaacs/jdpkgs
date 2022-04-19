@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-with pkgs;
+{ stdenv, libsecret, pkg-config, }:
 
 stdenv.mkDerivation rec {
   pname = "lssecret";

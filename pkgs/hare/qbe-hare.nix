@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-with pkgs;
+{ stdenv, }:
 
 stdenv.mkDerivation rec {
   pname = "qbe-hare";

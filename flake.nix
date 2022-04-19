@@ -15,6 +15,8 @@
         inherit system;
         config.allowUnfree = true;
       };
+
+      jdpkgs = self.packages.${system};
     in
     {
       utils = import ./utils { inherit pkgs; jdpkgs = self.packages.${system}; };
@@ -23,6 +25,9 @@
         inherit pkgs;
       };
 
-      packages.${system} = import ./pkgs rec { inherit pkgs; jdpkgs = self.packages.${system}; };
+      #packages.${system} = import ./pkgs { jdpkgs = self.packages.${system}; inherit pkgs; };
+      packages.${system} = (import ./pkgs) { } pkgs;
+
+      overlays.default = final: prev: (import ./pkgs) final prev;
     };
 }

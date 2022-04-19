@@ -1,5 +1,4 @@
-{ pkgs, jdpkgs, crate2nix, ... }@inputs:
-with pkgs;
+{ stdenv, tree-sitter }:
 
 # Modified from https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/tools/parsing/tree-sitter/grammar.nix
 stdenv.mkDerivation rec {
@@ -11,7 +10,7 @@ stdenv.mkDerivation rec {
     rev = "bc26a6a949f2e0d98b7bfc437d459b250900a165";
   };
 
-  buildInputs = [ pkgs.tree-sitter ];
+  buildInputs = [ tree-sitter ];
 
   dontConfigure = true;
 

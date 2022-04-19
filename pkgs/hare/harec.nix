@@ -1,5 +1,4 @@
-{ pkgs, jdpkgs, ... }:
-with pkgs;
+{ stdenv, scdoc, qbe-hare }:
 
 stdenv.mkDerivation rec {
   pname = "harec";
@@ -9,7 +8,7 @@ stdenv.mkDerivation rec {
     ref = "master";
     rev = "7efa977077c8e24c81d5b9a0e384ccfc7efd4d25";
   };
-  buildInputs = [ scdoc jdpkgs.qbe-hare ];
+  buildInputs = [ scdoc qbe-hare ];
   #buildPhase = ''
   #  make
   #'';

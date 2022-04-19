@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-with pkgs;
+{ buildGoModule, ... }:
 
 let
   version = "v1.0.2";
 in
-pkgs.buildGoModule rec {
+buildGoModule rec {
   pname = "undocker";
   inherit version;
 

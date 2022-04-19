@@ -1,7 +1,13 @@
-{ pkgs, ... }:
-with pkgs;
-
-{ packages ? with rPackages; [ markdown tidyverse lfe stargazer ] }:
+{ lib
+, rPackages
+, runCommand
+, makeWrapper
+, rstudio
+, rstudioWrapper
+, texlive
+, pandoc
+, packages ? with rPackages; [ markdown tidyverse lfe stargazer ]
+}:
 
 
 runCommand "rstudioWrapper"
@@ -17,14 +23,14 @@ runCommand "rstudioWrapper"
       rm $out/share/applications
       mkdir -p $out/share/applications
 
-      substitute ${pkgs.rstudioWrapper}/share/applications/RStudio.desktop $out/share/applications/RStudio.desktop \
+      substitute ${rstudioWrapper}/share/applications/RStudio.desktop $out/share/applications/RStudio.desktop \
         --replace 'Name=RStudio' 'Name=WrappedRstudio' \
         --replace 'Exec=rstudio %F' 'Exec=rstudioWrapper %F'
 
-      makeWrapper ${pkgs.rstudioWrapper.override {
+      makeWrapper ${rstudioWrapper.override {
         inherit packages;
       }}/bin/rstudio $out/bin/rstudioWrapper --prefix PATH : ${
-        lib.makeBinPath [ pkgs.texlive.combined.scheme-full pkgs.pandoc ]
+        lib.makeBinPath [ texlive.combined.scheme-full pandoc ]
       }
     ''
   )

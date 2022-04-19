@@ -1,5 +1,4 @@
-{ pkgs, jdpkgs, ... }:
-with pkgs;
+{ stdenv, scdoc, qbe-hare, harec, binutils }:
 
 stdenv.mkDerivation rec {
   pname = "hare";
@@ -9,7 +8,7 @@ stdenv.mkDerivation rec {
     ref = "master";
     rev = "e9e729bfa6a766fd422dcf6f676147059b634820";
   };
-  buildInputs = [ scdoc jdpkgs.qbe-hare jdpkgs.harec binutils ];
+  buildInputs = [ scdoc qbe-hare harec binutils ];
 
   configurePhase = ''
     export HOME=$out

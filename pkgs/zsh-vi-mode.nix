@@ -1,5 +1,5 @@
-{ pkgs, ... }:
-with pkgs;
+{ stdenvNoCC, fetchFromGitHub, }:
+
 stdenvNoCC.mkDerivation rec {
   pname = "zsh-vi-mode";
   version = "master";
