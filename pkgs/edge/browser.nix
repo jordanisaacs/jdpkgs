@@ -17,7 +17,6 @@ let
     if channel == "stable"
     then baseName
     else baseName + "-" + channel;
-  desktopName = "microsoft_edge_" + channel;
 
 in
 
@@ -45,11 +44,11 @@ stdenv.mkDerivation rec {
           nss
           nspr
           atk
-          at_spi2_atk
+          at-spi2-atk
           xorg.libX11
           xorg.libxcb
           cups.lib
-          dbus_libs.lib
+          dbus.lib
           expat
           libdrm
           xorg.libXcomposite
@@ -64,7 +63,7 @@ stdenv.mkDerivation rec {
           gdk-pixbuf
           mesa
           alsaLib
-          at_spi2_core
+          at-spi2-core
           xorg.libxshmfence
           systemd
         ];
@@ -77,7 +76,7 @@ stdenv.mkDerivation rec {
           mesa
           xorg.libX11
           xorg.libXext
-          dbus_libs.lib
+          dbus.lib
           libxkbcommon
         ];
         libwidevinecdm = lib.makeLibraryPath [
@@ -158,8 +157,6 @@ stdenv.mkDerivation rec {
 
     substituteInPlace $out/share/applications/${longName}.desktop \
       --replace /usr/bin/${baseName}-${channel} $out/bin/${baseName}-${channel}
-
-    mv $out/share/applications/${longName}.desktop $out/share/applications/${desktopName}.desktop
 
     substituteInPlace $out/share/gnome-control-center/default-apps/${longName}.xml \
       --replace /opt/microsoft/${shortName} $out/opt/microsoft/${shortName}
