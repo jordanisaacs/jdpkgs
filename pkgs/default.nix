@@ -18,5 +18,8 @@ with super; rec {
   texstudioWrapper = callPackage ./texstudio.nix {};
   rstudioWrapper = callPackage ./rstudio.nix {};
 
+  firefly-iii = callPackage ./firefly-iii {};
+
+  dolphin = callPackage ./dolphin.nix {};
   undocker = callPackage ./undocker.nix {};
 }

@@ -6,7 +6,7 @@
 , rstudioWrapper
 , texlive
 , pandoc
-, packages ? with rPackages; [ markdown tidyverse lfe stargazer ]
+, packages ? with rPackages; [ markdown tidyverse lfe stargazer car ]
 }:
 
 
