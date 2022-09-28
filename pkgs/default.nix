@@ -14,6 +14,8 @@ with super; rec {
   };
   tree-sitter-hare = callPackage ./hare/tree-sitter-hare.nix {};
 
+  ankisyncd = callPackage ./ankisyncd.nix {};
+
   onedriverWrapper = callPackage ./onedriver.nix {};
   texstudioWrapper = callPackage ./texstudio.nix {};
   rstudioWrapper = callPackage ./rstudio.nix {};
