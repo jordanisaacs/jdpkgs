@@ -1,14 +1,19 @@
-{pkgs ? import <nixpkgs> {
-    inherit system;
-  }, system ? builtins.currentSystem, noDev ? false, php ? pkgs.php, phpPackages ? pkgs.phpPackages}:
-
-let
-  composerEnv = import ./composer-env.nix {
-    inherit (pkgs) stdenv lib writeTextFile fetchurl unzip;
-    inherit php phpPackages;
-  };
-in
-import ./php-packages.nix {
-  inherit composerEnv noDev;
-  inherit (pkgs) fetchurl fetchgit fetchhg fetchsvn;
-}
+{
+  pkgs,
+  dataDir ? "/var/lib/firefly-iii",
+}:
+(import ./composer
+  {
+    inherit pkgs;
+    noDev = true;
+  })
+.overrideAttrs (attrs: rec {
+  name = "firefly-iii";
+  installPhase =
+    attrs.installPhase
+    + ''
+      rm -R $out/share/php/${name}/storage
+      ln -s ${dataDir}/storage $out/share/php/${name}/storage
+      ln -s ${dataDir}/.env $out/share/php/${name}/.env
+    '';
+})

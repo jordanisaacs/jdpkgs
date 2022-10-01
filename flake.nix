@@ -27,20 +27,14 @@
 
     extraPkgs = {
       composer2nix =
-        (import "${composer2nix}/default.nix" {
-          inherit pkgs system;
-          noDev = true;
-        })
+        (import "${composer2nix}/default.nix"
+          {
+            inherit pkgs system;
+            noDev = true;
+          })
         .override {
-          executable = true;
+          name = "composer2nix";
         };
-    };
-
-    extraApps = {
-      composer2nix = {
-        type = "app";
-        program = "${extraPkgs.composer2nix}/bin/composer2nix";
-      };
     };
 
     jdpkgs = self.packages.${system};
@@ -56,7 +50,7 @@
     #packages.${system} = import ./pkgs { jdpkgs = self.packages.${system}; inherit pkgs; };
     packages.${system} = ((import ./pkgs) {} pkgs) // extraPkgs;
 
-    apps.${system} = extraApps;
+    #apps.${system} = extraApps;
 
     overlays.default = final: prev: (import ./pkgs) final prev;
   };
