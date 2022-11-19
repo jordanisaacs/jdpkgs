@@ -24,4 +24,6 @@ with super; rec {
 
   dolphin = callPackage ./dolphin.nix {};
   undocker = callPackage ./undocker.nix {};
+
+  waylock = callPackage ./waylock.nix {};
 }
