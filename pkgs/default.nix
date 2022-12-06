@@ -23,6 +23,9 @@ with super; rec {
   firefly-iii = callPackage ./firefly-iii {};
 
   dolphin = callPackage ./dolphin.nix {};
+  element-desktop = callPackage ./element-desktop.nix {};
+  authy = callPackage ./authy.nix {};
+
   undocker = callPackage ./undocker.nix {};
 
   waylock = callPackage ./waylock.nix {};
