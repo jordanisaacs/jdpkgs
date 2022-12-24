@@ -1,20 +1,23 @@
-{ stdenv
-, inkscape
-, xcursorgen
+{
+  stdenv,
+  inkscape,
+  xcursorgen,
+  fetchFromGitHub,
 }:
-
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "volantes-cursors";
   version = "1.0.0";
-  src = builtins.fetchTarball {
-    url = "https://github.com/varlesh/volantes-cursors/archive/d1d290ff42cc4fa643716551bd0b02582b90fd2f.tar.gz";
-    sha256 = "1nhga1h0gn8azalsmgja2sz1v1k6kkj4ivxpc0kxv8z8x7yhvcwa";
+  src = fetchFromGitHub {
+    owner = "varlesh";
+    repo = "volantes-cursors";
+    rev = "b13a4bbf6bd1d7e85fadf7f2ecc44acc198f8d01";
+    sha256 = "sha256-vJe1S+YHrUBwJSwt2+InTu5ho2FOtz7FjDxu0BIA1Js=";
   };
-  buildInputs = [ inkscape xcursorgen ];
+  buildInputs = [inkscape xcursorgen];
   buildPhase = ''
     make build
   '';
   installPhase = ''
-    DESTDIR=$out make install
+    DESTDIR=$out PREFIX= make install
   '';
 }
