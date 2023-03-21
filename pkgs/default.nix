@@ -29,4 +29,6 @@ with super; rec {
   undocker = callPackage ./undocker.nix {};
 
   waylock = callPackage ./waylock.nix {};
+
+  flameshot = libsForQt5.callPackage ./flameshot.nix {};
 }
