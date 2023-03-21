@@ -49,5 +49,10 @@ in
     postBuild = ''
       wrapProgram $out/bin/flameshot \
         --prefix PATH : ${grim}/bin
+
+      for desktopFile in $out/share/applications/*; do
+        cp --remove-destination $(readlink $desktopFile) $out/share/applications
+        substituteInPlace "$desktopFile" --replace ${drv} $out
+      done
     '';
   }
