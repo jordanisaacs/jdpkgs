@@ -11,7 +11,7 @@ GITHUB_REPO=firefly-iii
 latest_version=$(curl -s --show-error "https://api.github.com/repos/$GITHUB_OWNER/$GITHUB_REPO/releases/latest" | jq -r '.tag_name')
 
 # Determine if we are already at the latest version.
-current_version=$(nix eval --raw firefly-iii.version)
+current_version=$(nix eval --raw ".#firefly-iii.version")
 
 if [[ "$current_version" == "$latest_version" ]]; then
     echo "firefly-iii: already at $current_version"
@@ -32,7 +32,7 @@ rm composer.json composer.lock
 
 # Update the version number and hash in default.nix
 setKV () {
-    sed -i "s|$1 = \".*\"|$1 = \"${2:-}\"|" ./default.nix
+    sed -i "s|$1 = \".*\"|$1 = \"${2:-}\"|" ../default.nix
 }
 
 sha256=$(nix-prefetch-url --unpack --quiet "https://github.com/$GITHUB_OWNER/$GITHUB_REPO/archive/refs/tags/$latest_version.zip")

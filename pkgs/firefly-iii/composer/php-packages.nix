@@ -205,20 +205,20 @@ let
     "guzzlehttp/guzzle" = {
       targetDir = "";
       src = composerEnv.buildZipPackage {
-        name = "guzzlehttp-guzzle-b964ca597e86b752cd994f27293e9fa6b6a95ed9";
+        name = "guzzlehttp-guzzle-fb7566caccf22d74d1ab270de3551f72a58399f5";
         src = fetchurl {
-          url = "https://api.github.com/repos/guzzle/guzzle/zipball/b964ca597e86b752cd994f27293e9fa6b6a95ed9";
-          sha256 = "0jnrmq328pg9h0g2kka313yphl5f38kihi9d363a0a98789w4gbw";
+          url = "https://api.github.com/repos/guzzle/guzzle/zipball/fb7566caccf22d74d1ab270de3551f72a58399f5";
+          sha256 = "0cmpq50s5xi9sg1dygllrhwj5dz5bxxj83xkvjspz63751xr51cs";
         };
       };
     };
     "guzzlehttp/promises" = {
       targetDir = "";
       src = composerEnv.buildZipPackage {
-        name = "guzzlehttp-promises-b94b2807d85443f9719887892882d0329d1e2598";
+        name = "guzzlehttp-promises-3a494dc7dc1d7d12e511890177ae2d0e6c107da6";
         src = fetchurl {
-          url = "https://api.github.com/repos/guzzle/promises/zipball/b94b2807d85443f9719887892882d0329d1e2598";
-          sha256 = "1vvac7y5ax955qjg7dyjmaw3vab9v2lypjygap0040rv3z4x9vz8";
+          url = "https://api.github.com/repos/guzzle/promises/zipball/3a494dc7dc1d7d12e511890177ae2d0e6c107da6";
+          sha256 = "1x8m4j1snrwyaywa0bsch26lr4050cnwpximbx4k66awc562f068";
         };
       };
     };
@@ -265,10 +265,10 @@ let
     "laravel/framework" = {
       targetDir = "";
       src = composerEnv.buildZipPackage {
-        name = "laravel-framework-be0478dea96a6619bb77676f36f67c1500846b17";
+        name = "laravel-framework-9e6dcff23ab1d4b522bef56074c31625cf077576";
         src = fetchurl {
-          url = "https://api.github.com/repos/laravel/framework/zipball/be0478dea96a6619bb77676f36f67c1500846b17";
-          sha256 = "03r5jic8i77vwjxw5pygfpiwx72h7lfifhbv5nvn9mbq52bn9p5v";
+          url = "https://api.github.com/repos/laravel/framework/zipball/9e6dcff23ab1d4b522bef56074c31625cf077576";
+          sha256 = "0nw3isfjmwqs1a4n3qvw0kvsg6jsrx5wcapkxdbcfp2lha0sbmld";
         };
       };
     };
@@ -315,10 +315,10 @@ let
     "laravel/ui" = {
       targetDir = "";
       src = composerEnv.buildZipPackage {
-        name = "laravel-ui-05ff7ac1eb55e2dfd10edcfb18c953684d693907";
+        name = "laravel-ui-a58ec468db4a340b33f3426c778784717a2c144b";
         src = fetchurl {
-          url = "https://api.github.com/repos/laravel/ui/zipball/05ff7ac1eb55e2dfd10edcfb18c953684d693907";
-          sha256 = "0g4302i22lkfdn0mx29a161x0239h98x3fbc2997dl4dzpk68h8f";
+          url = "https://api.github.com/repos/laravel/ui/zipball/a58ec468db4a340b33f3426c778784717a2c144b";
+          sha256 = "0qrfr7rbi5b90inx3xf5yy5p9h38rs9b2567p2vh3711w4kqjmqd";
         };
       };
     };
@@ -775,20 +775,20 @@ let
     "spatie/ignition" = {
       targetDir = "";
       src = composerEnv.buildZipPackage {
-        name = "spatie-ignition-f747d83c6d7cb6229b462f3ddbb3a82dc0db0f78";
+        name = "spatie-ignition-ad13a6792992411e05d3d3b293e26bdf9f9a7321";
         src = fetchurl {
-          url = "https://api.github.com/repos/spatie/ignition/zipball/f747d83c6d7cb6229b462f3ddbb3a82dc0db0f78";
-          sha256 = "04ka33bcc7cbdkvczbhwgb149288j5m0y5qh4i2his3abahl3k03";
+          url = "https://api.github.com/repos/spatie/ignition/zipball/ad13a6792992411e05d3d3b293e26bdf9f9a7321";
+          sha256 = "0m8nfpfrpqvql68k0ax6r7606zswsfq6ac07dnwldz8r7677slyp";
         };
       };
     };
     "spatie/laravel-ignition" = {
       targetDir = "";
       src = composerEnv.buildZipPackage {
-        name = "spatie-laravel-ignition-2f99fa6b732a6049e78ed34e4608ce589605ae54";
+        name = "spatie-laravel-ignition-35711943d4725aa80f8033e4f1cb3a6775530b25";
         src = fetchurl {
-          url = "https://api.github.com/repos/spatie/laravel-ignition/zipball/2f99fa6b732a6049e78ed34e4608ce589605ae54";
-          sha256 = "1afr56hrryrvjh1dayd74xihgmcnanysma0xp51h6vlxhbjgwd5x";
+          url = "https://api.github.com/repos/spatie/laravel-ignition/zipball/35711943d4725aa80f8033e4f1cb3a6775530b25";
+          sha256 = "1l4kfpyyldm17ci78rpx0h186fbc15bdhx34jzjs61xvvqwz3rix";
         };
       };
     };
