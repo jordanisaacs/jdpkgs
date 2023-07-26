@@ -4,25 +4,26 @@
   symlinkJoin,
   makeWrapper,
   wrapQtAppsHook,
+  cmake,
+  extra-cmake-modules,
+  qtwebsockets,
+  kcmutils,
 }: let
   drv = mkDerivation {
-    pname = "kunifiedpush";
+    name = "kunifiedpush";
 
-    src = fetchGit {
+    src = builtins.fetchGit {
       url = "https://invent.kde.org/libraries/kunifiedpush.git";
-      sha256 = "";
+      ref = "master";
+      rev = "9b81a638681c4a6b1b946c78e07c4efb9a88edfe";
     };
 
-    # nativeBuildInputs = [wrapQtAppsHook];
-    # buildInputs = [qtbase];
-
-    # cmakeFlags = [
-    #   "-DUSE_WAYLAND_GRIM=true"
-    # ];
+    nativeBuildInputs = [extra-cmake-modules];
+    buildInputs = [qtwebsockets kcmutils];
 
     meta = with lib; {
-      description = "Powerful yet simple to use screenshot software";
-      homepage = "https://github.com/flameshot-org/flameshot";
+      description = "UnifiedPush client library and distributor daemon.";
+      homepage = "https://invent.kde.org/libraries/kunifiedpush";
       maintainers = with maintainers; [scode oxalica];
       license = licenses.gpl3Plus;
       platforms = platforms.linux ++ platforms.darwin;
@@ -30,17 +31,3 @@
   };
 in
   drv
-# symlinkJoin {
-#   name = "kunifiedpush-wrapper";
-#   paths = [drv];
-#   buildInputs = [makeWrapper];
-#   postBuild = ''
-#     wrapProgram $out/bin/flameshot \
-#       --prefix PATH : ${grim}/bin
-#     for desktopFile in $out/share/applications/*; do
-#       cp --remove-destination $(readlink $desktopFile) $out/share/applications
-#       substituteInPlace "$desktopFile" --replace ${drv} $out
-#     done
-#   '';
-# }
-

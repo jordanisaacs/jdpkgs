@@ -26,15 +26,7 @@
     };
 
     extraPkgs = {
-      composer2nix =
-        (import "${composer2nix}/default.nix"
-          {
-            inherit pkgs system;
-            noDev = true;
-          })
-        .override {
-          name = "composer2nix";
-        };
+      composer2nix = import "${composer2nix}/default.nix" {inherit pkgs system;};
     };
 
     jdpkgs = self.packages.${system};

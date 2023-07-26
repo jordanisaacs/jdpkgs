@@ -4,6 +4,7 @@
   symlinkJoin,
   makeWrapper,
   fetchFromGitHub,
+  fetchpatch,
   qtbase,
   cmake,
   qttools,
@@ -16,10 +17,10 @@
     version = "12.1.0";
 
     src = fetchFromGitHub {
-      owner = "flameshot-org";
+      owner = "lbatalha";
       repo = "flameshot";
-      rev = "3ededae5745761d23907d65bbaebb283f6f8e3f2";
-      hash = "sha256-4SMg63MndCctpfoOX3OQ1vPoLP/90l/KGLifyUzYD5g=";
+      rev = "84acbdafd0a81839e9e98351eb339bbe1ba1bf54";
+      hash = "sha256-O3hvWVyOD+YJU8ZfkcGPRBN2gYOqfS9rixtJyxLA3Tk=";
     };
 
     passthru = {
