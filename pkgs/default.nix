@@ -31,4 +31,5 @@ with super; rec {
   waylock = callPackage ./waylock.nix {};
 
   flameshot = libsForQt5.callPackage ./flameshot.nix {};
+  kunifiedpush = libsForQt5.callPackage ./kunifiedpush.nix {};
 }
